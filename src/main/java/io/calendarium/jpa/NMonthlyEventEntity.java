@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
 import static io.calendarium.core.NMonthlyEvent.isNMonthDue;
 
