@@ -1,5 +1,6 @@
 package io.calendarium.jpa;
 
+import io.calendarium.core.NMonthlyEvent;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -11,7 +12,7 @@ import static io.calendarium.core.NMonthlyEvent.isNMonthDue;
 
 @Entity
 @DiscriminatorValue("NMONTHLY")
-public class NMonthlyEventEntity extends RecurringEventEntity {
+public class NMonthlyEventEntity extends RecurringEventEntity implements NMonthlyEvent {
 
     @Column(name="EVERY_NTH_MONTH")
     private int everyNthMonth;

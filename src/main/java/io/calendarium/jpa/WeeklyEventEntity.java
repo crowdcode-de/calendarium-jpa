@@ -1,5 +1,6 @@
 package io.calendarium.jpa;
 
+import io.calendarium.core.WeeklyEvent;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -13,7 +14,7 @@ import static io.calendarium.core.WeeklyEvent.isWeeklyDue;
 
 @Entity
 @DiscriminatorValue("WEEKLY")
-public class WeeklyEventEntity extends RecurringEventEntity {
+public class WeeklyEventEntity extends RecurringEventEntity implements WeeklyEvent {
 
     @Column(name="DAY_OF_WEEK", columnDefinition = "VARCHAR(10)")
     @Enumerated

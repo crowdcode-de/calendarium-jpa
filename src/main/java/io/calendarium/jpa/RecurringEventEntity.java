@@ -1,6 +1,7 @@
 package io.calendarium.jpa;
 
 import io.calendarium.core.CalendarEvent;
+import io.calendarium.core.RecurringEvent;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @Table(name="CLD_RECURRING_EVENT")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE", columnDefinition = "VARCHAR(32)")
-public abstract class RecurringEventEntity implements CalendarEvent {
+public abstract class RecurringEventEntity implements RecurringEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

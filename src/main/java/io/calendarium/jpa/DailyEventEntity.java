@@ -1,5 +1,6 @@
 package io.calendarium.jpa;
 
+import io.calendarium.core.DailyEvent;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
@@ -10,7 +11,7 @@ import static io.calendarium.core.DailyEvent.isDailyDue;
 
 @Entity
 @DiscriminatorValue("DAILY")
-public class DailyEventEntity extends RecurringEventEntity {
+public class DailyEventEntity extends RecurringEventEntity implements DailyEvent {
 
 
     @Override

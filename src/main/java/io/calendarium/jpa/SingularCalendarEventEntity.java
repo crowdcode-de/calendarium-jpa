@@ -1,6 +1,7 @@
 package io.calendarium.jpa;
 
 import io.calendarium.core.CalendarEvent;
+import io.calendarium.core.SingularCalendarEvent;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "SINGULAR_EVENT_ENTITY")
-public class SingularCalendarEventEntity implements CalendarEvent {
+public class SingularCalendarEventEntity implements SingularCalendarEvent {
 
 
     @Id
