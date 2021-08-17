@@ -2,7 +2,7 @@ package io.calendarium.jpa;
 
 import io.calendarium.core.CalendarEvent;
 import io.calendarium.core.SingularCalendarEvent;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * Singular event. This is a single event with no recurring
  */
 @Entity
-@Table(name = "SINGULAR_EVENT_ENTITY")
+@Table(name = "SINGULAR_EVENT")
 public class SingularCalendarEventEntity implements SingularCalendarEvent {
 
 
@@ -33,11 +33,9 @@ public class SingularCalendarEventEntity implements SingularCalendarEvent {
     private String description;
 
     @Column(name="CREATED")
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime created;
 
     @Column(name="DUE_DATE_TIME")
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime dueDateTime;
 
     @Override

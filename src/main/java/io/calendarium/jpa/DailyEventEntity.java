@@ -1,8 +1,8 @@
 package io.calendarium.jpa;
 
 import io.calendarium.core.DailyEvent;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

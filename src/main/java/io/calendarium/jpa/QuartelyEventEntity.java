@@ -1,8 +1,8 @@
 package io.calendarium.jpa;
 
 import io.calendarium.core.QuartelyEvent;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("QUARTERLY")

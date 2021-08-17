@@ -1,11 +1,10 @@
 package io.calendarium.jpa;
 
-import io.calendarium.core.CalendarEvent;
 import io.calendarium.core.RecurringEvent;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
  * Base class of recurring events. A recurring event will recur until the repeatUntil date has been reached
  */
 @Entity
-@Table(name="CLD_RECURRING_EVENT")
+@Table(name="RECURRING_EVENT")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE", columnDefinition = "VARCHAR(32)")
 public abstract class RecurringEventEntity implements RecurringEvent {
@@ -38,15 +37,12 @@ public abstract class RecurringEventEntity implements RecurringEvent {
     private String description;
 
     @Column(name="CREATED")
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime created;
 
     @Column(name = "DUE_DATE_TIME")
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime dueDateTime;
 
     @Column(name="REPEAT_UNTIL")
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime repeatUntil;
 
 

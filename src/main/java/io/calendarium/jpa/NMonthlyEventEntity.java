@@ -1,9 +1,9 @@
 package io.calendarium.jpa;
 
 import io.calendarium.core.NMonthlyEvent;
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

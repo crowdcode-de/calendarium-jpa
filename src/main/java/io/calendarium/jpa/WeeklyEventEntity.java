@@ -1,10 +1,10 @@
 package io.calendarium.jpa;
 
 import io.calendarium.core.WeeklyEvent;
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
