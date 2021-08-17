@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "SINGULAR_EVENT")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TYPE", columnDefinition = "VARCHAR(32)")
 public class SingularCalendarEventEntity implements SingularCalendarEvent {
 
 
