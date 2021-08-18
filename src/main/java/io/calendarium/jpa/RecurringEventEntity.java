@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  * Base class of recurring events. A recurring event will recur until the repeatUntil date has been reached
@@ -21,6 +22,10 @@ public abstract class RecurringEventEntity implements RecurringEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Column(columnDefinition="VARCHAR(36)")
+    private UUID uuid;
+
     @Version
     private Long version;
 
@@ -30,6 +35,7 @@ public abstract class RecurringEventEntity implements RecurringEvent {
 
     @Column(name="NAME")
     @NotNull
+    @Size(max=64)
     private String name;
 
     @Column(name="DESCRIPTION")
@@ -118,5 +124,14 @@ public abstract class RecurringEventEntity implements RecurringEvent {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    @Override
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 }
