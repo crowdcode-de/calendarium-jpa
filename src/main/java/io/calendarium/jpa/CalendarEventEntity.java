@@ -53,6 +53,7 @@ public class CalendarEventEntity implements CalendarEvent {
 
     @Column(name = "EVENT_TYPE")
     @Enumerated(EnumType.STRING)
+    @NotNull
     private EventType eventType;
 
     @Column(name = "DUE_DATE_TIME")
