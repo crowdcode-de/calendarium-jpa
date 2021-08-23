@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.calendarium</groupId>
@@ -11,12 +11,44 @@
   <name>calendarium-jpa</name>
   <url>http://github.com/crowdcode-de/calendarium</url>
 
+
+  <description>This is a small utility library coping with events and recurring events including the generation
+    of calendars containing the events.
+  </description>
+
+  <organization>
+    <url>https://www.crowdcode.io</url>
+    <name>Crowdcode GmbH + Co. KG</name>
+  </organization>
+
   <licenses>
     <license>
       <name>Apache License 2.0</name>
       <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <comments>Free to use. (C) 2021 Crowdcode GmbH+Co.KG</comments>
     </license>
   </licenses>
+
+  <scm>
+    <url>https://github.com/crowdcode-de/calendarium-jpa</url>
+    <connection>scm:git:https://github.com/crowdcode-de/calendarium-jpa.git</connection>
+    <developerConnection>scm:svn:https://github.com/crowdcode-de/calendarium-jpa.git
+    </developerConnection>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>repo.crowdcode.io</id>
+      <name>repo.crowdcode.io</name>
+      <url>https://repo.crowdcode.io/repository/releases/</url>
+    </repository>
+
+    <snapshotRepository>
+      <id>repo.crowdcode.io</id>
+      <name>repo.crowdcode.io</name>
+      <url>https://repo.crowdcode.io/repository/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <developers>
     <developer>
