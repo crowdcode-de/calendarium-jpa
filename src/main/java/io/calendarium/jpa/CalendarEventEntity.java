@@ -12,8 +12,11 @@ import java.util.UUID;
  * Abstract superclass to all event types to unify all properties which are
  * required by the event entities
  */
-@MappedSuperclass
-public abstract class AbstractEventEntity implements CalendarEvent {
+@Entity
+@Table(name = "CALENDAR_EVENT")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", columnDefinition = "VARCHAR(32)")
+public class CalendarEventEntity implements CalendarEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,27 +30,37 @@ public abstract class AbstractEventEntity implements CalendarEvent {
     private Precision precision;
 
     @NotNull
-    @Column(columnDefinition="VARCHAR(36)", name="UUID")
+    @Column(columnDefinition = "VARCHAR(36)", name = "UUID")
     private UUID uuid;
 
-    @Column(columnDefinition = "VARCHAR(64)", name="CREATED_BY")
+    @Column(columnDefinition = "VARCHAR(64)", name = "CREATED_BY")
     private String createdBy;
 
-    @Column(name="CREATED")
+    @Column(name = "CREATED")
     private LocalDateTime created;
 
-    @Column(name="LAST_MODIFIED")
+    @Column(name = "LAST_MODIFIED")
     private LocalDateTime lastModified;
 
-    @Column(name="NAME")
+    @Column(name = "NAME")
     @NotNull
-    @Size(max=64)
+    @Size(max = 64)
     private String name;
 
-    @Column(name="DESCRIPTION")
+    @Column(name = "DESCRIPTION")
     @Size(max = 255)
     private String description;
 
+    @Column(name = "EVENT_TYPE")
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private EventType eventType;
+
+    @Column(name = "DUE_DATE_TIME")
+    private LocalDateTime dueDateTime;
+
+    @Column(name = "REPEAT_UNTIL")
+    private LocalDateTime repeatUntil;
 
     public Long getId() {
         return id;
@@ -124,5 +137,32 @@ public abstract class AbstractEventEntity implements CalendarEvent {
 
     public void setPrecision(Precision precision) {
         this.precision = precision;
+    }
+
+    @Override
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
+    }
+
+    @Override
+    public LocalDateTime getDueDateTime() {
+        return dueDateTime;
+    }
+
+    public void setDueDateTime(LocalDateTime dueDateTime) {
+        this.dueDateTime = dueDateTime;
+    }
+
+    @Override
+    public LocalDateTime getRepeatUntil() {
+        return repeatUntil;
+    }
+
+    public void setRepeatUntil(LocalDateTime repeatUntil) {
+        this.repeatUntil = repeatUntil;
     }
 }
