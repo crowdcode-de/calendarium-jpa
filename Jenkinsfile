@@ -14,7 +14,7 @@ pipeline {
                         sh "git reset --hard origin/${env.BRANCH_NAME}"
                         pom = readMavenPom file: 'pom.xml'
                         final orginalVersion = pom.version
-                        mvn("-DfailOnMissingBranchId=false -Dnamespace=io.calendarium -DbranchName=${env.BRANCH_NAME} -Dgituser=${gituser} -Dgitpassword=${gitPwd} io.crowdcode:bgav-maven-plugin:1.1.0:bgav")
+                        mvn("-DfailOnMissingBranchId=false -Dnamespace=io.calendarium -DbranchName=${env.BRANCH_NAME} -Dgituser=${gituser} -Dgitpassword=${gitPwd} io.crowdcode:bgav-maven-plugin:1.2.0:bgav")
                         pom = readMavenPom file: 'pom.xml'
                         final newVersion = pom.version
 
